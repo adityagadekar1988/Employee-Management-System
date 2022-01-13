@@ -1,2 +1,3 @@
 # README
-Added models and schema for Employee, Address, Contact and Employee Documents
+Installed devise gem and override default Devise Controllers with Users Controller.
+Also changed few views.
