@@ -1,0 +1,31 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Date of Birth</th>
+      <th>Experience</th>
+      <th>Department</th>
+      <th>Designation</th>
+      <th>Joining Date</th>        
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee|%>
+      <tr>
+        <td><%= employee.id %></td>
+        <td><%= employee.name %></td>
+        <td><%= employee.email %></td>
+        <td><%= employee.dob %></td>
+        <td><%= employee.experience %></td>
+        <td><%= employee.department %></td>
+        <td><%= employee.designation %></td>
+        <td><%= employee.joining_date %></td>  
+        <td><%= link_to 'Edit' %></td>
+        <td><%= link_to 'Delete' %></td>       
+      </tr>
+    <% end %>
+  </tbody>  
+</table>

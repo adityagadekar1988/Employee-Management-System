@@ -1,0 +1,7 @@
+<div>
+  <% if user_signed_in? %>
+    <%= link_to 'Add Employee', new_employee_path %>
+    <h2>Employees</h2>
+    <%= render 'list' %>
+  <% end %>
+</div>
