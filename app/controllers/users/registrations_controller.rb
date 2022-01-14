@@ -6,12 +6,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    super
+    flash[:alert] = 'Registrations are not open.'
+    redirect_to new_user_session_path
   end
 
   # POST /resource
   def create
-    super
+    flash[:alert] = 'Registrations are not open.'
+    redirect_to new_user_session_path
   end
 
   # GET /resource/edit
