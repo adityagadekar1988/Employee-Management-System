@@ -1,0 +1,60 @@
+<%= form_with(model: @employee) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder: "Enter Employee's Name" %>
+  <br><br>
+  <%= f.label :email %>
+  <%= f.text_field :email, placeholder: "Enter Email" %>
+  <br><br>
+  Addresses:
+  <br>
+  <%= f.fields_for :addresses do |address| %>
+    <%= address.label :type %>
+    <%= address.text_field :category, placeholder: "Local or Permanent" %><br>
+    <%= address.label :flat_no, 'Flat No.' %>
+    <%= address.text_field :flat_no, placeholder: "Flat No." %><br>
+    <%= address.label :area %>
+    <%= address.text_field :area, placeholder: "Area" %><br>
+    <%= address.label :street_no, 'Street No.' %>
+    <%= address.text_field :street_no, placeholder: "Street No." %><br>
+    <%= address.label :landmark %>(Optional)
+    <%= address.text_field :category, placeholder: "Landmark" %><br>
+    <%= address.label :city, 'City/Town/Village' %>
+    <%= address.text_field :city %><br>
+    <%= address.label :district %>
+    <%= address.text_field :district %><br>
+    <%= address.label :state %>
+    <%= address.text_field :state %><br>
+    <%= address.label :postal_code, 'Postal Code' %>
+    <%= address.text_field :postal_code %><br>
+  <% end%>
+  <br><br>
+  Contacts:
+  <br>
+  <%= f.fields_for :contacts do |contact| %>
+    <%= contact.label :type%>
+    <%= contact.text_field :contact_type, placeholder: "Personal" %><br>
+    <%= contact.label :Number%>
+    <%= contact.text_field :contact_no, placeholder: "Enter Contact" %><br>
+    <%= contact.label :type%>
+    <%= contact.text_field :contact_type, placeholder: "Alternative" %><br>
+    <%= contact.label :Number%>
+    <%= contact.text_field :contact_no, placeholder: "Enter Contact" %><br>    
+  <% end %>
+  <br><br>
+  <%= f.label :date_of_birth, 'Date of Birth' %>
+  <%= f.date_field :dob, placeholder: "Select Date" %>
+  <br><br>
+  <%= f.label :experience %>
+  <%= f.text_field :experience %>
+  <br><br>
+  <%= f.label :department %>
+  <%= f.text_field :department %>
+  <br><br>
+  <%= f.label :designation %>
+  <%= f.text_field :designation %>
+  <br><br>
+  <%= f.label :joining_date, 'Joining Date' %>
+  <%= f.date_field :joining_date %>
+  <br><br>
+  <%= f.submit %>
+<% end %>
