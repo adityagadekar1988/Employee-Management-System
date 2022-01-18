@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  # root to: "pages#home"
-  resources :employees
+  # root to: "pages#home" 
+  
   devise_for :users, controllers: {
     confirmations: 'users/confirmations',
     passwords: 'users/passwords',
@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   
   devise_scope :user do 
     root to: 'users/sessions#new'
-  end 
+  end
+
+  resources :employees 
+  resources :addresses
+  resources :contacts
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
