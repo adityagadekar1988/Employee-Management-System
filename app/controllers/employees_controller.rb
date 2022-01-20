@@ -1,6 +1,8 @@
 class EmployeesController < ApplicationController
   def new
     @employee = Employee.new
+    2.times{ @employee.addresses.build }
+    2.times{ @employee.contacts.build }
   end
 
   def create
@@ -41,7 +43,5 @@ end
 
 def employee_params
   params.require(:employee).permit(:name, :email, :dob, :experience, :department, :designation,
-                  :joining_date, 
-                  addresses_attributes: [:id, :category, :flat_no, :area, :street_no, :landmark, :city, :district, :state, :postal_code, :employee_id], 
-                  contacts_attributes: [:id, :contact_type, :contact_number, :employee_id])
+                  :joining_date, addresses_attributes: [:id, :content, :category, :flat_no, :area, :street_no, :landmark, :city, :district, :state, :postal_code], contacts_attributes: [:id, :content, :contact_type, :contact_no])
 end
