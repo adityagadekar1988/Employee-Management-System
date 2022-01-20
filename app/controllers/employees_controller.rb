@@ -1,4 +1,6 @@
 class EmployeesController < ApplicationController
+  before_action :require_user
+
   def new
     @employee = Employee.new
     2.times{ @employee.addresses.build }
