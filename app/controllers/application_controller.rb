@@ -4,4 +4,11 @@ class ApplicationController < ActionController::Base
     employees_path
   end
 
+  def require_user
+    if !user_signed_in?
+      flash[:alert] = "Uh-oh, You need to Login to perform that action!!!"
+      redirect_to root_path
+    end
+  end 
+
 end
