@@ -1,4 +1,4 @@
-<%= form_with(model: @employee) do |f| %>
+<%= form_with(model: @employee, local: true) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name, placeholder: "Enter Employee's Name" %>
   <br><br>
@@ -17,7 +17,7 @@
     <%= address.label :street_no, 'Street No.' %>
     <%= address.text_field :street_no, placeholder: "Street No." %><br>
     <%= address.label :landmark %>(Optional)
-    <%= address.text_field :category, placeholder: "Landmark" %><br>
+    <%= address.text_field :landmark, placeholder: "Landmark" %><br>
     <%= address.label :city, 'City/Town/Village' %>
     <%= address.text_field :city %><br>
     <%= address.label :district %>
@@ -32,13 +32,9 @@
   <br>
   <%= f.fields_for :contacts do |contact| %>
     <%= contact.label :type%>
-    <%= contact.text_field :contact_type, placeholder: "Personal" %><br>
+    <%= contact.text_field :contact_type, placeholder: "Personal or Alternate" %><br>
     <%= contact.label :Number%>
-    <%= contact.text_field :contact_no, placeholder: "Enter Contact" %><br>
-    <%= contact.label :type%>
-    <%= contact.text_field :contact_type, placeholder: "Alternative" %><br>
-    <%= contact.label :Number%>
-    <%= contact.text_field :contact_no, placeholder: "Enter Contact" %><br>    
+    <%= contact.text_field :contact_no, placeholder: "Enter Contact" %><br> 
   <% end %>
   <br><br>
   <%= f.label :date_of_birth, 'Date of Birth' %>
