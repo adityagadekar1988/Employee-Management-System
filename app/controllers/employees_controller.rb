@@ -4,7 +4,7 @@ class EmployeesController < ApplicationController
   def new
     @employee = Employee.new
     2.times{ @employee.addresses.build }
-    2.times{ @employee.contacts.build }
+    2.times{ @employee.contacts.build } 
   end
 
   def create
@@ -16,14 +16,15 @@ class EmployeesController < ApplicationController
       render 'new'
     end
   end 
-
+  
   def edit
     @employee = Employee.find(params[:id])
   end
-
+  
   def update
     @employee = Employee.find(params[:id])
     if @employee.update(employee_params)
+      binding.pry 
       flash[:notice] = "Employee details were updated successfully."
       redirect_to employees_path
     else
@@ -45,5 +46,8 @@ end
 
 def employee_params
   params.require(:employee).permit(:name, :email, :dob, :experience, :department, :designation,
-                  :joining_date, addresses_attributes: [:id, :content, :category, :flat_no, :area, :street_no, :landmark, :city, :district, :state, :postal_code], contacts_attributes: [:id, :content, :contact_type, :contact_no])
+                  :joining_date, addresses_attributes: [:id, :content, :category, :flat_no, :area, :street_no, :landmark, 
+                                                        :city, :district, :state, :postal_code], 
+                                contacts_attributes: [:id, :content, :contact_type, :contact_no],
+                                employee_documents_attributes: [:id, :content, {:employee_id => []}, {:document_id => []}])
 end
