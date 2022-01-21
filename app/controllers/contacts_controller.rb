@@ -4,7 +4,7 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.create(contact_params)
+    @contact = Contact.new(contact_params)
     if @contact.save
       redirect_to employees_path
     end 
