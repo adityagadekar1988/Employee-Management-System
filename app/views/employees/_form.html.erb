@@ -52,5 +52,8 @@
   <%= f.label :joining_date, 'Joining Date' %>
   <%= f.date_field :joining_date %>
   <br><br>
+  <%= f.label :documents, 'Documents Submitted:' %><br>
+  <%= f.collection_check_boxes :document_ids, Document.all, :id, :document_name %>
+  <br><br>
   <%= f.submit %>
 <% end %>
