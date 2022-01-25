@@ -23,8 +23,7 @@ class EmployeesController < ApplicationController
   
   def update
     @employee = Employee.find(params[:id])
-    if @employee.update(employee_params)
-      binding.pry 
+    if @employee.update(employee_params) 
       flash[:notice] = "Employee details were updated successfully."
       redirect_to employees_path
     else
@@ -42,7 +41,7 @@ class EmployeesController < ApplicationController
   def index
     @employees = Employee.all 
   end
-  
+
   private
 
   def employee_params
