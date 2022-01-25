@@ -42,12 +42,13 @@ class EmployeesController < ApplicationController
   def index
     @employees = Employee.all 
   end
-end
+  
+  private
 
-def employee_params
-  params.require(:employee).permit(:name, :email, :dob, :experience, :department, :designation,
-                  :joining_date, addresses_attributes: [:id, :content, :category, :flat_no, :area, :street_no, :landmark, 
-                                                        :city, :district, :state, :postal_code], 
-                                contacts_attributes: [:id, :content, :contact_type, :contact_no],
-                                employee_documents_attributes: [:id, :content, {:employee_id => []}, {:document_id => []}])
+  def employee_params
+    params.require(:employee).permit(:name, :email, :dob, :experience, :department, :designation,
+                    :joining_date, addresses_attributes: [:id, :category, :flat_no, :area, :street_no, :landmark, 
+                                                          :city, :district, :state, :postal_code], 
+                                  contacts_attributes: [:id, :contact_type, :contact_no], :document_ids=>[])
+  end
 end
