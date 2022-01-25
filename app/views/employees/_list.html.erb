@@ -16,7 +16,7 @@
     <% @employees.each do |employee|%>
       <tr>
         <td><%= employee.id %></td>
-        <td><%= employee.name %></td>
+        <td><%= link_to employee.name, employee_path(employee) %></td>
         <td><%= employee.email %></td>
         <td><%= employee.dob %></td>
         <td><%= employee.experience %></td>
