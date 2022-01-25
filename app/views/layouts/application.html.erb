@@ -11,10 +11,12 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <h1>EMS(Employee Management System)</h1>
-    <%= render 'layouts/links' %>
-    <%= yield %>   
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <h1>EMS(Employee Management System)</h1>
+      <%= render 'layouts/links' %>
+      <%= yield %>   
+    </div>
   </body>
 </html>
