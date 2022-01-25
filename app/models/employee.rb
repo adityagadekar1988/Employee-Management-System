@@ -9,8 +9,9 @@ class Employee < ApplicationRecord
   validates_associated :contacts
 
   has_many :employee_documents, dependent: :destroy 
-  accepts_nested_attributes_for :employee_documents
+  
   has_many :documents, through: :employee_documents
+  accepts_nested_attributes_for :documents
   
   validates :name, :dob, :experience, :department, :designation, :joining_date, presence: true
   validates :email, presence: true, uniqueness: { case_sensitive: false }, 
