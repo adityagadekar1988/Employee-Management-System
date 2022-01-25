@@ -1,61 +1,64 @@
-<%= form_with(model: @employee, local: true) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, placeholder: "Enter Employee's Name" %>
-  <br>
-  <%= f.label :email %>
-  <%= f.text_field :email, placeholder: "Enter Email" %>
-  <br>
-  <h3>Addresses:</h3>
-  <%= f.fields_for :addresses do |address| %>
-    <%= address.label :type %>
-    <%= address.text_field :category, placeholder: "Local or Permanent" %>
-    <%= address.label :flat_no, 'Flat No.' %>
-    <%= address.text_field :flat_no, placeholder: "Flat No." %>
-    <%= address.label :area %>
-    <%= address.text_field :area, placeholder: "Area" %>
-    <%= address.label :street_no, 'Street No.' %>
-    <%= address.text_field :street_no, placeholder: "Street No." %><br>
-    <%= address.label :landmark %>(Optional)
-    <%= address.text_field :landmark, placeholder: "Landmark" %><br>
-    <%= address.label :city, 'City/Town/Village' %>
-    <%= address.text_field :city %><br>
-    <%= address.label :district %>
-    <%= address.text_field :district %><br>
-    <%= address.label :state %>
-    <%= address.text_field :state %><br>
-    <%= address.label :postal_code, 'Postal Code' %>
-    <%= address.text_field :postal_code %><br>
-  <% end%>
+<div class="m-4">
+  <%= form_with(model: @employee, local: true) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: "Enter Employee's Name", class: "m-1" %>
+    <%= f.label :email %>
+    <%= f.text_field :email, placeholder: "Enter Email", class: "m-1" %>
+    <br>
+    <h3 class= "fw-bold mt-2" >Addresses:</h3>
+    <%= f.fields_for :addresses do |address| %>
+      <%= address.label :type %>
+      <%= address.text_field :category, placeholder: "Local or Permanent", class: "m-1" %>
+      <%= address.label :flat_no, 'Flat No.' %>
+      <%= address.text_field :flat_no, placeholder: "Flat No.", class: "m-1" %>
+      <%= address.label :area %>
+      <%= address.text_field :area, placeholder: "Area", class: "m-1" %>
+      <%= address.label :street_no, 'Street No.' %>
+      <%= address.text_field :street_no, placeholder: "Street No.", class: "m-1" %><br>
+      <%= address.label :landmark %>(Optional)
+      <%= address.text_field :landmark, placeholder: "Landmark", class: "m-1" %><br>
+      <%= address.label :city, 'City/Town/Village' %>
+      <%= address.text_field :city, class: "m-1" %><br>
+      <%= address.label :district %>
+      <%= address.text_field :district, class: "m-1" %><br>
+      <%= address.label :state %>
+      <%= address.text_field :state, class: "m-1" %><br>
+      <%= address.label :postal_code, 'Postal Code' %>
+      <%= address.text_field :postal_code, class: "m-1" %><br>
+    <% end%>
 
-  <h3>Contacts:</h3>
-  <%= f.fields_for :contacts do |contact| %>
-    <%= contact.label :type%>
-    <%= contact.text_field :contact_type, placeholder: "Personal or Alternate" %><br>
-    <%= contact.label :Number%>
-    <%= contact.text_field :contact_no, placeholder: "Enter Contact" %><br> 
+    <h3 class= "fw-bold mt-2" >Contacts:</h3>
+    <%= f.fields_for :contacts do |contact| %>
+      <%= contact.label :type, class: "m-1"%>
+      <%= contact.text_field :contact_type, placeholder: "Personal or Alternate", class: "m-1" %>
+      <%= contact.label :Number, class: "m-1"%>
+      <%= contact.text_field :contact_no, placeholder: "Enter Contact", class: "m-1" %><br> 
+    <% end %>
+
+    <h3 class= "fw-bold mt-2" >Other Details:</h3>
+    <%= f.label :date_of_birth, 'Date of Birth' %>
+    <%= f.date_field :dob, placeholder: "Select Date", class: "m-1" %>
+
+    <%= f.label :experience %>
+    <%= f.text_field :experience, class: "m-1" %>
+  
+    <%= f.label :department %>
+    <%= f.text_field :department, class: "m-1" %>
+    <br>
+    <%= f.label :designation %>
+    <%= f.text_field :designation, class: "m-1" %>
+    
+    <%= f.label :joining_date, 'Joining Date' %>
+    <%= f.date_field :joining_date, class: "m-1" %>
+    <br>
+    <h4 class="fw-bold mt-2" >Documents Submitted:</h4>
+    <%= f.collection_check_boxes :document_ids, Document.all, :id, :document_name, class: "form-check" do |b| %>
+      <%= b.check_box class: "form-check-input m-1" %>
+      <%= b.label class: "form-check-label" %>
+    <% end %>
+    <br>
+    <div> 
+      <%= f.submit class: "btn btn-primary mt-2" %>
+    </div>
   <% end %>
-  <%= f.label :date_of_birth, 'Date of Birth' %>
-  <%= f.date_field :dob, placeholder: "Select Date" %>
-  <br>
-  <%= f.label :experience %>
-  <%= f.text_field :experience %>
-  <br>
-  <%= f.label :department %>
-  <%= f.text_field :department %>
-  <br>
-  <%= f.label :designation %>
-  <%= f.text_field :designation %>
-  <br>
-  <%= f.label :joining_date, 'Joining Date' %>
-  <%= f.date_field :joining_date %>
-  <br>
-  <%= f.label :documents, 'Documents Submitted:' %><br>
-  <%= f.collection_check_boxes :document_ids, Document.all, :id, :document_name, class: "form-check" do |b| %>
-    <%= b.check_box class: "form-check-input" %>
-    <%= b.label class: "form-check-label" %>
-  <% end %>
-  <br>
-  <div> 
-    <%= f.submit class: "btn btn-primary" %>
-  </div>
-<% end %>
+</div>

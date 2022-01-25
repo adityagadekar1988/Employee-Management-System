@@ -12,3 +12,10 @@
  *
  */
  @import "bootstrap";
+ @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+
+ .container {
+   background-color: rgba(214, 214, 214, 0.884);
+   border: 5px ridge rgb(82, 82, 82) ;
+   font-family: 'Roboto Slab', serif;
+ }
