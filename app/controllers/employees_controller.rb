@@ -16,6 +16,11 @@ class EmployeesController < ApplicationController
       render 'new'
     end
   end 
+
+  def show
+    @employee = Employee.find(params[:id])
+    @employee.addresses
+  end 
   
   def edit
     @employee = Employee.find(params[:id])
