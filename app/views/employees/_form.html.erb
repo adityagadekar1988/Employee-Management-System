@@ -6,32 +6,27 @@
     <%= f.text_field :email, placeholder: "Enter Email", class: "m-1" %>
     <br>
     <h3 class= "fw-bold mt-2" >Addresses:</h3>
+    <h4>Permanent Address:</h4>
     <%= f.fields_for :addresses do |address| %>
-      <%= address.label :type %>
-      <%= address.text_field :category, placeholder: "Local or Permanent", class: "m-1" %>
-      <%= address.label :flat_no, 'Flat No.' %>
-      <%= address.text_field :flat_no, placeholder: "Flat No.", class: "m-1" %>
-      <%= address.label :area %>
-      <%= address.text_field :area, placeholder: "Area", class: "m-1" %>
-      <%= address.label :street_no, 'Street No.' %>
-      <%= address.text_field :street_no, placeholder: "Street No.", class: "m-1" %><br>
+      <%= address.label :line_1 %>
+      <%= address.text_field :first_line, class: "m-1" %>
+      <%= address.label :line_2%>
+      <%= address.text_field :second_line, placeholder: "Street No.", class: "m-1" %>
       <%= address.label :landmark %>(Optional)
       <%= address.text_field :landmark, placeholder: "Landmark", class: "m-1" %><br>
       <%= address.label :city, 'City/Town/Village' %>
-      <%= address.text_field :city, class: "m-1" %><br>
+      <%= address.text_field :city, class: "m-1" %>
       <%= address.label :district %>
-      <%= address.text_field :district, class: "m-1" %><br>
+      <%= address.text_field :district, class: "m-1" %>
       <%= address.label :state %>
-      <%= address.text_field :state, class: "m-1" %><br>
+      <%= address.text_field :state, class: "m-1" %>
       <%= address.label :postal_code, 'Postal Code' %>
-      <%= address.text_field :postal_code, class: "m-1" %><br>
+      <%= address.text_field :postal_code, class: "m-1" %>
     <% end%>
 
     <h3 class= "fw-bold mt-2" >Contacts:</h3>
     <%= f.fields_for :contacts do |contact| %>
-      <%= contact.label :type, class: "m-1"%>
-      <%= contact.text_field :contact_type, placeholder: "Personal or Alternate", class: "m-1" %>
-      <%= contact.label :Number, class: "m-1"%>
+      <%= contact.label :number, class: "m-1"%>
       <%= contact.text_field :contact_no, placeholder: "Enter Contact", class: "m-1" %><br> 
     <% end %>
 

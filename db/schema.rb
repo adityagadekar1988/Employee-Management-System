@@ -10,13 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_12_132241) do
+ActiveRecord::Schema.define(version: 2022_01_27_133638) do
 
   create_table "addresses", force: :cascade do |t|
-    t.string "category"
-    t.string "flat_no"
-    t.string "area"
-    t.string "street_no"
+    t.string "first_line"
+    t.string "second_line"
     t.string "landmark"
     t.string "city"
     t.string "district"
@@ -26,7 +24,6 @@ ActiveRecord::Schema.define(version: 2022_01_12_132241) do
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string "contact_type"
     t.string "contact_no"
     t.integer "employee_id"
   end
