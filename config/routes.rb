@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # root to: "pages#home" 
+
   
   devise_for :users, controllers: {
     confirmations: 'users/confirmations',
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
   resources :addresses
   resources :contacts
   resources :documents
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
