@@ -25,8 +25,10 @@ class ContactsController < ApplicationController
   def index
     @contacts = Contact.all
   end
+  
+  private
+  def contact_params
+    params.require(:contact).permit(:contact_number, :employee_id)
+  end
 end
 
-def contact_params
-  params.require(:contact).permit(:contact_number, :employee_id)
-end

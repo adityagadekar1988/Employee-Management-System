@@ -3,7 +3,7 @@ class EmployeesController < ApplicationController
 
   def new
     @employee = Employee.new
-    @employee.addresses.build
+    @employee.addresses.build 
     @employee.contacts.build  
   end
 
