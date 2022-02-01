@@ -3,17 +3,6 @@
 //=require jquery_ujs
 //= require popper
 //= require bootstrap
+//= require nested_form_fields
 import "@hotwired/turbo-rails"
 import "controllers"
-
-$(document).ready(function () {
-  $('#add_address').click(function(evt) {
-    $('div#new_address').append(('#address_form').html() +    
-    '<div><button class="removeAddress", type="button">remove</button></div>');
-  });
-  
-  $('#new_address').on('click', '.removeAddress', function(evt) {
-    $(this).closest('#address_form').remove();
-    console.log("hello");
-  });
-});
