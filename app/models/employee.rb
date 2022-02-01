@@ -1,17 +1,17 @@
 class Employee < ApplicationRecord
   before_save { self.email = email.downcase }
   has_many :addresses, dependent: :destroy
-  accepts_nested_attributes_for :addresses 
+  accepts_nested_attributes_for :addresses, allow_destroy: true 
   validates_associated :addresses
 
   has_many :contacts, dependent: :destroy
-  accepts_nested_attributes_for :contacts
+  accepts_nested_attributes_for :contacts, allow_destroy: true
   validates_associated :contacts
 
   has_many :employee_documents, dependent: :destroy 
   
   has_many :documents, through: :employee_documents
-  accepts_nested_attributes_for :documents
+  accepts_nested_attributes_for :documents, allow_destroy: true 
   
   validates :name, :dob, :experience, :department, :designation, :joining_date, presence: true
   validates :email, presence: true, uniqueness: { case_sensitive: false }, 
