@@ -1,5 +1,5 @@
 <div class="m-4">
-  <%= form_with model: @employee, local: true do |f| %>
+  <%= form_for @employee do |f| %>
     <%= f.label :name, 'Full Name' %>
     <%= f.text_field :name, placeholder: "Enter Employee's Name", class: "m-1" %>
     <%= f.label :email %>
@@ -12,12 +12,12 @@
     </div>
     
     <h3 class= "fw-bold mt-2">Contacts:</h3>
-    <%= f.nested_fields_for :contacts do |contact| %>
-      <%= contact.label :number, class: "m-1"%>
-      <%= contact.text_field :contact_no, placeholder: "Enter Contact", class: "m-1" %>
-      <%= contact.remove_nested_fields_link 'Remove', data: { confirm: 'Are you sure?' }, class: "link-danger" %>
+    <%= f.fields_for :contacts do |contact| %>
+      <%= render 'contact_fields', f: contact %>
     <% end %>
-    <%= f.add_nested_fields_link :contacts, 'Add Contact', class: 'btn btn-secondary btn-sm' %>
+    <div class="links">
+      <%= link_to_add_association 'Add Contact', f, :contacts, class: 'btn btn-secondary btn-sm' %>
+    </div>
 
     <h3 class= "fw-bold mt-2" >Other Details:</h3>
     <%= f.label :date_of_birth, 'Date of Birth' %>
