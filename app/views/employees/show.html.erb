@@ -1,0 +1,51 @@
+<h2 class="text-center mt-4"><%= @employee.name %>'s Profile</h2>
+<div class="row justify-content-md-center mb-4">
+  <div class="card border border-secondary" style="width: 30rem;">
+    <%# <img src="#" class="card-img-top" alt="..."> %>
+    <div class="card-body">
+      <div class="mb-2">
+        <h5>Email:</h5>
+        <%= @employee.email %>
+        <hr class="solid">
+        <h5>Addresses:</h5>
+        <ul>
+          <% @employee.addresses.each do |f| %>
+            <li>
+              <%= f.first_line %>
+              <%= f.second_line %>
+              <%= f.landmark %>
+              <%= f.city %>
+              <%= f.district %>
+              <%= f.state %>
+              <%= f.postal_code %>
+            </li>
+          <% end %>
+        </ul>
+        <hr class="solid">
+        <h5>Contacts:</h5>
+        <ul>
+          <% @employee.contacts.each do |f|%>
+            <li><%= f.contact_no %></li>
+          <% end %>
+        </ul>
+        <hr class="solid">
+        <h5>Date of Birth:</h5>
+        <%= @employee.dob.to_formatted_s(:rfc822) %>
+        <hr class="solid">
+        <h5>Experience:</h5>
+        <%= @employee.experience %>
+        <hr class="solid">
+        <h5>Department:</h5>
+        <%= @employee.department %>
+        <hr class="solid">
+        <h5>Designation:</h5>
+        <%= @employee.designation %>
+        <hr class="solid">
+        <h5>Joining Date:</h5>
+        <%= @employee.joining_date.to_formatted_s(:rfc822) %>
+      </div>
+      <%= link_to 'Edit Profile', edit_employee_path(@employee), class: "btn btn-secondary" %>
+      <%= link_to 'Back to Employee List', employees_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
