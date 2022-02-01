@@ -49,6 +49,8 @@ gem 'jquery-rails'
 gem 'pry'
 
 gem 'bootstrap', '~> 5.1', '>= 5.1.3'
+
+gem 'nested_form_fields'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
