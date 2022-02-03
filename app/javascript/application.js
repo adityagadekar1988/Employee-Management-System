@@ -4,6 +4,7 @@
 //= require popper
 //= require bootstrap
 //= require nested_form_fields
+
 import "@hotwired/turbo-rails"
 import "controllers"
 
