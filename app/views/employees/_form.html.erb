@@ -1,4 +1,5 @@
-<div class="m-4">
+<div class="form m-4">
+  <%= render partial: 'layouts/errors', locals: { obj: @employee } %> 
   <%= form_with model: @employee, local: true do |f| %>
     <%= f.label :name, 'Full Name' %>
     <%= f.text_field :name, placeholder: "Enter Employee's Name", class: "m-1" %>
@@ -12,11 +13,17 @@
     </div>
     
     <h3 class= "fw-bold mt-2">Contacts:</h3>
-    <%= f.nested_fields_for :contacts do |contact| %>
-      <%= contact.label :number, class: "m-1"%>
-      <%= contact.text_field :contact_no, placeholder: "Enter Contact", class: "m-1" %>
-      <%= contact.remove_nested_fields_link 'Remove', data: { confirm: 'Are you sure?' }, class: "link-danger" %>
-    <% end %>
+    <div class="nested_form_field">
+      <%= f.nested_fields_for :contacts do |contact| %>
+        <div class="fields-row">
+          <%= contact.label :number, class: "m-1"%>
+          <%= contact.text_field :contact_no, placeholder: "Enter Contact", class: "m-1" %>
+          <%# if @employee.contacts.size > 1 %>
+            <%= contact.remove_nested_fields_link 'Remove', data: { confirm: 'Are you sure?' }, class: "link-danger remove-fields" %>
+          <%# end %>
+        </div>
+      <% end %>
+    </div>
     <%= f.add_nested_fields_link :contacts, 'Add Contact', class: 'btn btn-secondary btn-sm' %>
 
     <h3 class= "fw-bold mt-2" >Other Details:</h3>
