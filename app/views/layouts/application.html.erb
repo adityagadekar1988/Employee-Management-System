@@ -12,12 +12,7 @@
 
   <body>
     <div class="container mt-4 rounded">
-      <% flash.each do |name, msg| %>
-        <div class="alert alert-<%= name == "notice" ? "primary" : "danger" %> alert-dismissible fade show" role="alert">
-          <%= msg %> 
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> 
-        </div>  
-      <% end %>
+      <%= render 'layouts/messages' %>
       <h1 class="mt-4 text-center">EMS(Employee Management System)</h1>
       <%= render 'layouts/links' %>
       <%= yield %>   
