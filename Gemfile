@@ -52,8 +52,6 @@ gem 'bootstrap', '~> 5.1', '>= 5.1.3'
 
 gem 'nested_form_fields'
 
-gem 'simple_form'
-
 # Use Sass to process CSS
 # gem "sassc-rails"
 
