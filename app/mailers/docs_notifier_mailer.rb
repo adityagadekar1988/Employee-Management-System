@@ -3,6 +3,7 @@ class DocsNotifierMailer < ApplicationMailer
 
   def notification_email
     @employee = params[:employee]
-    mail(to: 'adityagadekar.ror@gmail.com', subject: 'Documents Missing from <%= @employee.name %>', date: <%= DateTime.now %>)
+    mail(to: 'adityagadekar.ror@gmail.com', 
+         subject: 'Documents Missing from employee.name')
   end 
 end
