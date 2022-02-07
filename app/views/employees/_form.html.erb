@@ -18,9 +18,7 @@
         <div class="fields-row">
           <%= contact.label :number, class: "m-1"%>
           <%= contact.text_field :contact_no, placeholder: "Enter Contact", class: "m-1" %>
-          <%# if @employee.contacts.size > 1 %>
-            <%= contact.remove_nested_fields_link 'Remove', data: { confirm: 'Are you sure?' }, class: "link-danger remove-fields" %>
-          <%# end %>
+          <%= contact.remove_nested_fields_link 'Remove', data: { confirm: 'Are you sure?' }, class: "link-danger remove-fields" %>
         </div>
       <% end %>
     </div>
