@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Missing Documents</title>
-</head>
-<body>
-  <p>Hello there,</p>
-  <p>This is to notify you that following documents from <%= @employee.name %> are missing: </p>
-  <ol>
-    <% Document.where.not(id: @employee.documents.pluck(:id)).each do |x|%>
-      <li><%= x.document_name %></li>
-    <% end %>
-  </ol>
-  <p>Please collect them ASAP.</p>
-  <p>Thanks</p>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missing Documents</title>
+  </head>
+  <body>
+    <p>Hello there,</p>
+    <p>This is to notify you that following documents from <%= @employee.name %> are missing: </p>
+    <ol>
+      <% Document.where.not(id: @employee.documents.pluck(:id)).each do |x|%>
+        <li><%= x.document_name %></li>
+      <% end %>
+    </ol>
+    <p>Please collect them ASAP.</p>
+    <p>Thanks</p>
+  </body>
 </html>
