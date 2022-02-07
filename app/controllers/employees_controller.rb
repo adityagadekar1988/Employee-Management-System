@@ -8,7 +8,7 @@ class EmployeesController < ApplicationController
   end
 
   def create
-    @employee = Employee.new(employee_params)
+    @employee = Employee.new(employee_params) 
     if @employee.save
       DocsNotifierMailer.with(employee: @employee).notification_email.deliver_now
       flash[:notice] = "Employee was added successfully."
@@ -27,9 +27,9 @@ class EmployeesController < ApplicationController
   end
   
   def update
-    @employee = Employee.find(params[:id])
+    @employee = Employee.find(params[:id]) 
     if @employee.update(employee_params)
-      DocsNotifierMailer.with(employee: @employee).notification_email.deliver_now 
+      DocsNotifierMailer.with(employee: @employee).notification_email.deliver_now
       flash[:notice] = "Employee details were updated successfully."
       redirect_to employees_path
     else
