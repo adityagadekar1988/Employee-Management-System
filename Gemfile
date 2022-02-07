@@ -54,6 +54,8 @@ gem 'nested_form_fields'
 
 gem 'dotenv-rails'
 
+gem 'sidekiq'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
