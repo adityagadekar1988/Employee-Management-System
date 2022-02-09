@@ -1,4 +1,0 @@
-send_doc_notifier_email_job:
-  cron: "32 13 * * *"
-  class: "SendDocNotifierEmailJob"
-  queue: default
