@@ -56,6 +56,8 @@ gem 'dotenv-rails'
 
 gem 'sidekiq'
 
+gem 'sidekiq-cron'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
