@@ -10,7 +10,7 @@ class EmployeesController < ApplicationController
   def create
     @employee = Employee.new(employee_params) 
     if @employee.save
-      DocsNotifierMailer.with(employee: @employee).notification_email.deliver_now if employee_params[:document_ids].length < 10
+      DocsNotifierMailer.with(employee: @employee).notification_email.deliver_later if employee_params[:document_ids].length < 10
       flash[:notice] = "Employee was added successfully."
       redirect_to employees_path
     else
@@ -29,8 +29,7 @@ class EmployeesController < ApplicationController
   def update
     @employee = Employee.find(params[:id]) 
     if @employee.update(employee_params)
-      binding.pry
-      DocsNotifierMailer.with(employee: @employee).notification_email.deliver_now if employee_params[:document_ids].length < 10
+      DocsNotifierMailer.with(employee: @employee).notification_email.deliver_later if employee_params[:document_ids].length < 10
       flash[:notice] = "Employee details were updated successfully."
       redirect_to employees_path
     else
