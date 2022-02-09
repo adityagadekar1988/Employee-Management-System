@@ -2,8 +2,11 @@ class SendDocNotifierEmailJob
   include Sidekiq::Job
 
   def perform(*args)
-    Employee.find_each do |user|
-      DocsNotifierMailer.with(employee: user).notification_email.deliver_now 
+    @employee.each do |user|
+      DocsNotifierMailer.notification_email.deliver_now
+      #puts "Hello There"
     end
   end
+
+  #Sidekiq::Cron::Job.create(name: 'send_doc_notifier_email_job', cron: '* * * * *', class: 'SendDocNotifierEmailJob')
 end
