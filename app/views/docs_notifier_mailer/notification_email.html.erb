@@ -19,18 +19,20 @@
       </thead>
 
       <tbody>
-        <% @employees.each_with_index do |employee, i| puts i unless i == 0%>
-          <tr>
-            <td><%= i + 1 %></td>
-            <td><%= employee.name %></td>
-            <td>
-              <ol>
-                <% Document.where.not(id: employee.documents.pluck(:id)).each do |doc| %>
-                  <li><%= doc.document_name %></li>
-                <% end %>         
-              </ol>
-            </td>        
-          </tr>
+        <% @employees.each_with_index do |employee, i| %>
+          <% if employee.documents.length < Document.all.count %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><%= employee.name %></td>
+              <td>
+                <ol>
+                  <% Document.where.not(id: employee.documents.pluck(:id)).each do |doc| %>
+                    <li><%= doc.document_name %></li>
+                  <% end %>         
+                </ol>
+              </td>        
+            </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>
