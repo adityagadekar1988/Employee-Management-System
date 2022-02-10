@@ -11,7 +11,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.new(employee_params)
     @doc = Document.all.count  
     if @employee.save
-      DocsNotifierMailer.with(employee: @employee).notification_email.deliver_later if employee_params[:document_ids].length < (@doc + 1)
+      #DocsNotifierMailer.with(employee: @employee).notification_email.deliver_later if employee_params[:document_ids].length < (@doc + 1)
       flash[:notice] = "Employee was added successfully."
       redirect_to employees_path
     else
@@ -31,7 +31,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id]) 
     @doc = Document.all.count 
     if @employee.update(employee_params)
-      DocsNotifierMailer.with(employee: @employee).notification_email.deliver_now if employee_params[:document_ids].length < (@doc + 1)
+      #DocsNotifierMailer.with(employee: @employee).notification_email.deliver_now if employee_params[:document_ids].length < (@doc + 1)
       flash[:notice] = "Employee details were updated successfully."
       redirect_to employees_path
     else
