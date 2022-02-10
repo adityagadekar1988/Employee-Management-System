@@ -12,26 +12,26 @@
     <table>
       <thead>
         <tr>
-          <th>ID</th>
+          <th>S. No.</th>
           <th>Employee Name</th>
-          <th>Documents List</th>
+          <th>Missing Documents</th>
         </tr>
       </thead>
 
       <tbody>
-        <%# @employee.each do |employee|%>
+        <% @employees.each_with_index do |employee, i| puts i unless i == 0%>
           <tr>
-            <td><%= @employee.id %></td>
-            <td><%= @employee.name %></td>
+            <td><%= i + 1 %></td>
+            <td><%= employee.name %></td>
             <td>
               <ol>
-                <% Document.where.not(id: @employee.documents.pluck(:id)).each do |doc| %>
+                <% Document.where.not(id: employee.documents.pluck(:id)).each do |doc| %>
                   <li><%= doc.document_name %></li>
                 <% end %>         
               </ol>
             </td>        
           </tr>
-        <%# end %>
+        <% end %>
       </tbody>
     </table>
 
