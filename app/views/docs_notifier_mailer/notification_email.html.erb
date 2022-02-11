@@ -20,23 +20,20 @@
 
       <tbody>
         <% @employees.each_with_index do |employee, i| %>
-          <% if employee.documents.length < Document.all.count %>
-            <tr>
-              <td><%= i + 1 %></td>
-              <td><%= employee.name %></td>
-              <td>
-                <ol>
-                  <% Document.where.not(id: employee.documents.pluck(:id)).each do |doc| %>
-                    <li><%= doc.document_name %></li>
-                  <% end %>         
-                </ol>
-              </td>        
-            </tr>
-          <% end %>
+          <tr>
+            <td><%= i + 1 %></td>
+            <td><%= employee.name %></td>
+            <td>
+              <ol>
+                <% Document.where.not(id: employee.documents.pluck(:id)).each do |doc| %>
+                  <li><%= doc.document_name %></li>
+                <% end %>         
+              </ol>
+            </td>        
+          </tr>
         <% end %>
       </tbody>
     </table>
-
     <p>Please collect them ASAP.</p>
     <p>Thanks</p>
   </body>
