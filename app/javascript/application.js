@@ -10,20 +10,20 @@ import "controllers"
 
 
 $(document).ready(function () {
-  $('.form')
-    .on("fields_added", function () {console.log ("Hello");
-      if ($(".fields-row").length > 1) {
-        $(".remove_fields")[0].style.display = "block";
-      } else {
-        $(".remove_fields")[0].style.display = "none";
-      }
-    })
-  $('.form')  
-    .on("fields_removed", function () {
-      if ($(".fields-row").length == 1) {
-        $(".remove_fields")[0].style.display = "none";
-      } else {
-        $(".remove_fields")[0].style.display = "block";
-      }
-    });
+  $('.nested_form_field').on("fields_added.nested_form_fields", function () { 
+    if ($(".fields-row").length > 1) {
+      $(".remove_fields").show();
+    } else {
+      $(".remove_fields").hide();
+    }
+  });
+  
+  $('.nested_form_field').on("fields_removed.nested_form_fields", function () {
+    //alert($(".fields-row").length);
+    if ($(".fields-row").length == 1) {
+      $(".remove_fields").hide();
+    } else {
+      $(".remove_fields").show();
+    }
+  });
 });
