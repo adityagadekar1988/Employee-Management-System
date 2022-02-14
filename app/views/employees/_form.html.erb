@@ -18,11 +18,11 @@
         <div class="fields-row">
           <%= contact.label :number, class: "m-1"%>
           <%= contact.text_field :contact_no, placeholder: "Enter Contact", class: "m-1" %>
-          <%= contact.remove_nested_fields_link 'Remove', data: { confirm: 'Are you sure?' }, class: "link-danger remove-fields" %>
+          <%= contact.remove_nested_fields_link 'Remove', data: { confirm: 'Are you sure?' }, class: "link-danger remove_fields" %>
         </div>
       <% end %>
     </div>
-    <%= f.add_nested_fields_link :contacts, 'Add Contact', class: 'btn btn-secondary btn-sm' %>
+    <%= f.add_nested_fields_link :contacts, 'Add Contact', class: 'btn btn-secondary btn-sm mt-1' %>
 
     <h3 class= "fw-bold mt-2" >Other Details:</h3>
     <%= f.label :date_of_birth, 'Date of Birth' %>
@@ -42,12 +42,12 @@
     <br>
     <h4 class="fw-bold mt-2" >Documents Submitted:</h4>
     <%= f.collection_check_boxes :document_ids, Document.all, :id, :document_name, class: "form-check" do |b| %>
-      <%= b.check_box class: "form-check-input m-1" %>
+      <%= b.check_box class: "form-check-input" %>
       <%= b.label class: "form-check-label" %>
     <% end %>
     <br>
     <div> 
-      <%= f.submit class: "btn btn-primary mt-2" %>
+      <%= f.submit class: "btn btn-primary mt-3" %>
     </div>
   <% end %>
 </div>
