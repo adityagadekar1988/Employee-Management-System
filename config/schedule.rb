@@ -21,7 +21,7 @@
 set :environment, "development"
 set :output, "log/cron.log"
 
-every :day, at: '03:26pm' do
+every :day, at: '11:00am' do
   runner "DocsNotifierMailer.notification_email.deliver_now"
 end 
 
