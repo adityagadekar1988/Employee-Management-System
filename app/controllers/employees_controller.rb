@@ -3,13 +3,14 @@ class EmployeesController < ApplicationController
 
   def new
     @employee = Employee.new
-    2.times{@employee.addresses.build}
+    @employee.build_permanent
+    @employee.build_local
     @employee.contacts.build  
   end
 
   def create
     @employee = Employee.new(employee_params)
-    @doc = Document.all.count  
+    binding.pry 
     if @employee.save
       flash[:notice] = "Employee was added successfully."
       redirect_to employees_path
@@ -27,8 +28,8 @@ class EmployeesController < ApplicationController
   end
   
   def update
-    @employee = Employee.find(params[:id]) 
-    @doc = Document.all.count 
+    @employee = Employee.find(params[:id])
+     binding.pry 
     if @employee.update(employee_params)
       flash[:notice] = "Employee details were updated successfully."
       redirect_to employees_path
@@ -52,8 +53,10 @@ class EmployeesController < ApplicationController
 
   def employee_params
     params.require(:employee).permit(:name, :email, :dob, :experience, :department, :designation,
-                    :joining_date, addresses_attributes: [:id, :first_line, :second_line, :landmark, 
-                                                          :city, :district, :state, :postal_code], 
+                    :joining_date, permanent_attributes: [:id, :type, :first_line, :second_line, :landmark, 
+                                                          :city, :district, :state, :postal_code],
+                                  local_attributes: [:id, :type, :first_line, :second_line, :landmark, 
+                                                            :city, :district, :state, :postal_code], 
                                   contacts_attributes: [:id, :contact_no, :_destroy], :document_ids=>[])
   end
 end
