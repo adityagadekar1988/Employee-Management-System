@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_27_133638) do
+ActiveRecord::Schema.define(version: 2022_02_15_111622) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "first_line"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2022_01_27_133638) do
     t.string "state"
     t.string "postal_code"
     t.integer "employee_id"
+    t.string "type"
+    t.index ["type", "employee_id"], name: "index_addresses_on_type_and_employee_id"
   end
 
   create_table "contacts", force: :cascade do |t|
