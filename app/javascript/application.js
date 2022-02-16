@@ -1,6 +1,5 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
 //= require popper
 //= require bootstrap
@@ -13,7 +12,6 @@ import "controllers"
 $(document).ready(function(){
   $("#make_same").on("click", function(){
     if (this.checked) { 
-      alert(23);
       $("#employee_local_attributes_first_line").val($("#employee_permanent_attributes_first_line").val());
       $("#employee_local_attributes_second_line").val($("#employee_permanent_attributes_second_line").val());
       $("#employee_local_attributes_landmark").val($("#employee_permanent_attributes_landmark").val());
