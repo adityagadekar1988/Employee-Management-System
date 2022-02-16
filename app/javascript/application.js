@@ -5,7 +5,7 @@
 //= require bootstrap
 //= require nested_form_fields
 
-// import "@hotwired/turbo-rails"
+// import "@hotwired/turbo-rails"  
 import { Turbo } from "@hotwired/turbo-rails"
 Turbo.session.drive = false
 
@@ -35,21 +35,29 @@ $(document).ready(function(){
   });
 });
 
-// $(document).ready(function () {
-//   $('.nested_form_field').on("fields_added.nested_form_fields", function () { 
-//     if ($(".fields-row").length > 1) {
+// $(document).ready(function(){
+//   if ($(".fields-row").length > 1) {
 //       $(".remove_fields").show();
 //     } else {
 //       $(".remove_fields").hide();
 //     }
-//   });
+// })
+
+$(document).ready(function () {
+  $('.nested_form_field').on("fields_added.nested_form_fields", function () { 
+    if ($(".fields-row").length > 1) {
+      $(".remove_fields").show();
+    } else {
+      $(".remove_fields").hide();
+    }
+  });
   
-//   $('.nested_form_field').on("fields_removed.nested_form_fields", function () {
-//     //alert($(".fields-row").length);
-//     if ($(".fields-row").length == 1) {
-//       $(".remove_fields").hide();
-//     } else {
-//       $(".remove_fields").show();
-//     }
-//   });
-// });
+  $('.nested_form_field').on("fields_removed.nested_form_fields", function () {
+    //alert($(".fields-row").length);
+    if ($(".fields-row").length == 1) {
+      $(".remove_fields").hide();
+    } else {
+      $(".remove_fields").show();
+    }
+  });
+});
