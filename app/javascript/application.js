@@ -5,7 +5,10 @@
 //= require bootstrap
 //= require nested_form_fields
 
-import "@hotwired/turbo-rails"
+// import "@hotwired/turbo-rails"
+import { Turbo } from "@hotwired/turbo-rails"
+Turbo.session.drive = false
+
 import "controllers"
 
 
@@ -31,8 +34,6 @@ $(document).ready(function(){
     }
   });
 });
-  
-
 
 // $(document).ready(function () {
 //   $('.nested_form_field').on("fields_added.nested_form_fields", function () { 
