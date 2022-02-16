@@ -1,6 +1,10 @@
 <div class="text-center mt-2">
   <h2><strong><u>Employee list</u></strong></h2>
-  <%= render 'list' %>
+  <% if @employees.any? %>
+    <%= render 'list' %>
+  <% else %>
+    <h5>No Employees to show</h5>
+  <% end %>
 </div>
   
 

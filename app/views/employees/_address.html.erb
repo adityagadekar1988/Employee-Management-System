@@ -1,5 +1,33 @@
-<%= f.fields_for :addresses, id: "address_form" do |address| %>
+<%= f.fields_for :permanent, id: "permanent_address" do |address| %>
   <div class="col-md-9">
+    <%= address.label :type %>
+    <%= address.select :type, ["Permanent", "Local"], class: "my-1"%>
+    <%= address.label :line_1 %>
+    <%= address.text_field :first_line, class: "my-1" %>
+    <%= address.label :line_2%>
+    <%= address.text_field :second_line, placeholder: "Street No.", class: "my-1" %>
+    <%= address.label :landmark %>(Optional)
+    <%= address.text_field :landmark, placeholder: "Landmark", class: "my-1" %>
+    <%= address.label :city, 'City/Town/Village' %>
+    <%= address.text_field :city, class: "my-1" %>
+    <%= address.label :district %>
+    <%= address.text_field :district, class: "my-1" %>
+    <%= address.label :state %>
+    <%= address.text_field :state, class: "my-1" %>    
+    <%= address.label :postal_code, 'Postal Code' %>
+    <%= address.text_field :postal_code, class: "my-1" %>
+  </div>
+<% end%>
+
+<div class="my-2">
+  <input type="checkbox", id="make_same", class="form-check-input"/>
+  <label>Make Local Address same as Permanent Address</label>
+</div>
+
+<%= f.fields_for :local, id: "local_address" do |address| %>
+  <div class="col-md-9">
+    <%= address.label :type %>
+    <%= address.select :type, ["Permanent", "Local"], class: "my-1"%>
     <%= address.label :line_1 %>
     <%= address.text_field :first_line, class: "my-1" %>
     <%= address.label :line_2%>
