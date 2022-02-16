@@ -5,25 +5,39 @@
 //= require bootstrap
 //= require nested_form_fields
 
-import "@hotwired/turbo-rails"
-import "controllers"
-
+import "@hotwired/turbo-rails";
+import "controllers";
 
 $(document).ready(function () {
-  $('.nested_form_field').on("fields_added.nested_form_fields", function () { 
-    if ($(".fields-row").length > 1) {
-      $(".remove_fields").show();
-    } else {
-      $(".remove_fields").hide();
-    }
+  if ($(".fields-row").length == 1) {
+    $(".remove_fields").hide();
+  }
+
+  $(".add_nested_fields_link").on("click", function () {
+    $(".remove_fields").show();
   });
-  
-  $('.nested_form_field').on("fields_removed.nested_form_fields", function () {
-    //alert($(".fields-row").length);
-    if ($(".fields-row").length == 1) {
-      $(".remove_fields").hide();
-    } else {
-      $(".remove_fields").show();
-    }
-  });
+
+  // $(".remove_nested_fields_link").bind("click", function () {
+  //   alert($(".fields-row").length);
+  //   if ($(".fields-row").length == 1) {
+  //     $(".remove_fields").hide();
+  //   }
+  // });
+
+  // $(".nested_form_field").on("fields_added.nested_form_fields", function () {
+  //   if ($(".fields-row").length > 1) {
+  //     $(".remove_fields").show();
+  //   } else {
+  //     $(".remove_fields").hide();
+  //   }
+  // });
+
+  // $(".remove_nested_fields_link").on("click", function () {
+  //   alert($(".fields-row").length);
+  //   if ($(".fields-row").length == 1) {
+  //     $(".remove_fields").hide();
+  //   } else {
+  //     $(".remove_fields").show();
+  //   }
+  // });
 });
