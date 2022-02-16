@@ -10,7 +10,7 @@ class EmployeesController < ApplicationController
 
   def create
     @employee = Employee.new(employee_params)
-    binding.pry 
+    #binding.pry 
     if @employee.save
       flash[:notice] = "Employee was added successfully."
       redirect_to employees_path
@@ -29,7 +29,7 @@ class EmployeesController < ApplicationController
   
   def update
     @employee = Employee.find(params[:id])
-     binding.pry 
+    #binding.pry 
     if @employee.update(employee_params)
       flash[:notice] = "Employee details were updated successfully."
       redirect_to employees_path
