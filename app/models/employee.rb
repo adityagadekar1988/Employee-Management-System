@@ -1,5 +1,6 @@
 class Employee < ApplicationRecord
-  before_save { self.email = email.downcase }
+  before_save { self.email = email.downcase
+                self.name = name.titleize }
   has_many :addresses, dependent: :destroy, inverse_of: :employee
   validates_presence_of :addresses
   accepts_nested_attributes_for :addresses, allow_destroy: true
