@@ -13,36 +13,36 @@ import "controllers";
 
 $(document).ready(function () {
   $("#make_same").on("click", function () {
-    if (this.checked) {
-      $("#employee_local_attributes_first_line").val(
-        $("#employee_permanent_attributes_first_line").val()
+    if (this.checked) { debugger 
+      $("#employee_addresses_attributes_1_first_line").val(
+        $("#employee_addresses_attributes_0_first_line").val()
       );
-      $("#employee_local_attributes_second_line").val(
-        $("#employee_permanent_attributes_second_line").val()
+      $("#employee_addresses_attributes_1_second_line").val(
+        $("#employee_addresses_attributes_0_second_line").val()
       );
-      $("#employee_local_attributes_landmark").val(
-        $("#employee_permanent_attributes_landmark").val()
+      $("#employee_addresses_attributes_1_landmark").val(
+        $("#employee_addresses_attributes_0_landmark").val()
       );
-      $("#employee_local_attributes_city").val(
-        $("#employee_permanent_attributes_city").val()
+      $("#employee_addresses_attributes_1_city").val(
+        $("#employee_addresses_attributes_0_city").val()
       );
-      $("#employee_local_attributes_district").val(
-        $("#employee_permanent_attributes_district").val()
+      $("#employee_addresses_attributes_1_district").val(
+        $("#employee_addresses_attributes_0_district").val()
       );
-      $("#employee_local_attributes_state").val(
-        $("#employee_permanent_attributes_state").val()
+      $("#employee_addresses_attributes_1_state").val(
+        $("#employee_addresses_attributes_0_state").val()
       );
-      $("#employee_local_attributes_postal_code").val(
-        $("#employee_permanent_attributes_postal_code").val()
+      $("#employee_addresses_attributes_1_postal_code").val(
+        $("#employee_addresses_attributes_0_postal_code").val()
       );
     } else {
-      $("#employee_local_attributes_first_line").val("");
-      $("#employee_local_attributes_second_line").val("");
-      $("#employee_local_attributes_landmark").val("");
-      $("#employee_local_attributes_city").val("");
-      $("#employee_local_attributes_district").val("");
-      $("#employee_local_attributes_state").val("");
-      $("#employee_local_attributes_postal_code").val("");
+      $("#employee_addresses_attributes_1_first_line").val("");
+      $("#employee_addresses_attributes_1_second_line").val("");
+      $("#employee_addresses_attributes_1_landmark").val("");
+      $("#employee_addresses_attributes_1_city").val("");
+      $("#employee_addresses_attributes_1_district").val("");
+      $("#employee_addresses_attributes_1_state").val("");
+      $("#employee_addresses_attributes_1_postal_code").val("");
     }
   });
 });
@@ -63,6 +63,14 @@ $(document).ready(function () {
   $(".add_nested_fields_link").on("click", function () {
     $(".remove_fields").show();
   });
+
+  $(".remove_nested_fields_link").on("click", function () {
+    if ($(".fields-row").length == 1) {
+      $(".remove_fields").show();
+    }
+  });
+})
+
 
   // $(".remove_nested_fields_link").bind("click", function () {
   //   alert($(".fields-row").length);
@@ -87,4 +95,3 @@ $(document).ready(function () {
   //     $(".remove_fields").show();
   //   }
   // });
-});

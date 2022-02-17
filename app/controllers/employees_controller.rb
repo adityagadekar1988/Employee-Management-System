@@ -3,8 +3,7 @@ class EmployeesController < ApplicationController
 
   def new
     @employee = Employee.new
-    @employee.build_permanent
-    @employee.build_local
+    2.times{@employee.addresses.build}
     @employee.contacts.build  
   end
 
@@ -53,10 +52,8 @@ class EmployeesController < ApplicationController
 
   def employee_params
     params.require(:employee).permit(:name, :email, :dob, :experience, :department, :designation,
-                    :joining_date, permanent_attributes: [:id, :type, :first_line, :second_line, :landmark, 
+                    :joining_date, addresses_attributes: [:id, :type, :first_line, :second_line, :landmark, 
                                                           :city, :district, :state, :postal_code],
-                                  local_attributes: [:id, :type, :first_line, :second_line, :landmark, 
-                                                            :city, :district, :state, :postal_code], 
                                   contacts_attributes: [:id, :contact_no, :_destroy], :document_ids=>[])
   end
 end

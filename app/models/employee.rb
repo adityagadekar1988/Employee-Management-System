@@ -1,14 +1,9 @@
 class Employee < ApplicationRecord
   before_save { self.email = email.downcase }
   has_many :addresses, dependent: :destroy, inverse_of: :employee
-  has_one :permanent, dependent: :destroy
-  validates_presence_of :permanent 
-  has_one :local, dependent: :destroy
-  validates_presence_of :local 
-  accepts_nested_attributes_for :permanent, allow_destroy: true 
-  validates_associated :permanent
-  accepts_nested_attributes_for :local, allow_destroy: true 
-  validates_associated :local
+  validates_presence_of :addresses
+  accepts_nested_attributes_for :addresses, allow_destroy: true
+  validates_associated :addresses
 
   has_many :contacts, dependent: :destroy, inverse_of: :employee
   validates_presence_of :contacts 
