@@ -1,4 +1,4 @@
-<%= f.fields_for :addresses, id: "permanent_address" do |address| %>
+<%= f.fields_for :addresses do |address| %>
   <div class="col-md-9">
     <%= address.label :type %>
     <%= address.select :type, ["Permanent", "Local"], class: "my-1"%>
@@ -17,9 +17,10 @@
     <%= address.label :postal_code, 'Postal Code' %>
     <%= address.text_field :postal_code, class: "my-1" %>
   </div>
+  <% if address.options.values.last == 0 %>
+    <div class="my-2">
+      <input type="checkbox", id="make_same", class="form-check-input"/>
+      <label>Make Local Address same as Permanent Address</label>
+    </div>
+  <% end %>
 <% end%>
-
-<div class="my-2">
-  <input type="checkbox", id="make_same", class="form-check-input"/>
-  <label>Make Local Address same as Permanent Address</label>
-</div>
