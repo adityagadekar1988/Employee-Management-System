@@ -13,7 +13,7 @@ import "controllers";
 
 $(document).ready(function () {
   $("#make_same").on("click", function () {
-    if (this.checked) { debugger 
+    if (this.checked) {
       $("#employee_addresses_attributes_1_first_line").val(
         $("#employee_addresses_attributes_0_first_line").val()
       );
@@ -55,21 +55,32 @@ $(document).ready(function () {
 //     }
 // })
 
-$(document).ready(function () {
-  if ($(".fields-row").length == 1) {
-    $(".remove_fields").hide();
-  }
+$(document).ready(function (){  
+  debugger
+  $(".nested_form_field .remove_fields").hide();
+  // setInterval(function() {
+  $(".remove_fields").click(function(){
+    debugger
+    if ($(".nested_form_field .fields-row").length == 1) {
+      alert();
+      // $(".nested_form_field .remove_fields").find().hide();
+    }
+  });
+  // }, 5000);
+})
 
   $(".add_nested_fields_link").on("click", function () {
     $(".remove_fields").show();
   });
 
-  $(".remove_nested_fields_link").on("click", function () {
-    if ($(".fields-row").length == 1) {
-      $(".remove_fields").show();
-    }
-  });
-})
+
+  // $(".remove_nested_fields_link").on("click", function () { debugger 
+  //   if ($(".fields-row").length > 1) {
+  //     $(".remove_fields").show();
+  //   } else {
+  //     $(".remove_fields").hide();
+  //   }
+  // });
 
 
   // $(".remove_nested_fields_link").bind("click", function () {
@@ -79,13 +90,6 @@ $(document).ready(function () {
   //   }
   // });
 
-  // $(".nested_form_field").on("fields_added.nested_form_fields", function () {
-  //   if ($(".fields-row").length > 1) {
-  //     $(".remove_fields").show();
-  //   } else {
-  //     $(".remove_fields").hide();
-  //   }
-  // });
 
   // $(".remove_nested_fields_link").on("click", function () {
   //   alert($(".fields-row").length);
