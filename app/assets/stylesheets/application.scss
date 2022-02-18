@@ -12,7 +12,13 @@
  *
  */
   @import "bootstrap";
-  @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+  
+  @font-face {
+    font-family: 'Varela Round';
+    src: font-url('VarelaRound-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
 
  .container {
    background-color: rgba(214, 214, 214, 0.884);

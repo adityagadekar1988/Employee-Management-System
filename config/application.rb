@@ -17,6 +17,9 @@ module EMSCodenote
 
     config.active_job.queue_adapter = :sidekiq
 
+    config.assets.enabled = true
+    config.assets.paths << Rails.root.join('/app/assets/fonts')
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
