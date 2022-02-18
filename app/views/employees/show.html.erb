@@ -11,6 +11,7 @@
         <ul>
           <% @employee.addresses.each do |f| %>
             <li>
+              <%= f.type + " Address" %><br>
               <%= f.first_line %>
               <%= f.second_line %>
               <%= f.landmark %>
