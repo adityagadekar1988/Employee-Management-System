@@ -1,7 +1,11 @@
 <%= f.fields_for :addresses do |address| %>
   <div class="col-md-9">
-    <%= address.label :type %>
-    <%= address.select :type, ["Permanent", "Local"], class: "my-1"%>
+    <%= address.label :type %> 
+    <% if address.options.values.last == 0 %>
+      <%= address.select :type, ["Permanent"], class: "my-1"%>
+    <% else %>
+      <%= address.select :type, ["Local"], class: "my-1"%>
+    <% end %>
     <%= address.label :line_1 %>
     <%= address.text_field :first_line, class: "my-1" %>
     <%= address.label :line_2%>
