@@ -14,8 +14,8 @@
   @import "bootstrap";
   
   @font-face {
-    font-family: 'Varela Round';
-    src: font-url('VarelaRound-Regular.ttf') format('truetype');
+    font-family: 'Zilla Slab';
+    src: font-url('ZillaSlab-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
@@ -23,7 +23,7 @@
  .container {
    background-color: rgba(214, 214, 214, 0.884);
    border: 5px ridge rgb(82, 82, 82) ;
-   font-family: 'Varela Round', sans-serif;
+   font-family: 'Zilla Slab', serif;
   }
 
   hr.solid {
