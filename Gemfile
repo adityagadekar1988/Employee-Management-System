@@ -58,6 +58,10 @@ gem 'sidekiq'
 
 gem 'whenever', require: false
 
+gem 'yaml_db'
+
+gem 'mysql2', '~> 0.5.2'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

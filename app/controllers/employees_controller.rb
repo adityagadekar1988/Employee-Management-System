@@ -6,10 +6,9 @@ class EmployeesController < ApplicationController
     2.times{@employee.addresses.build}
     @employee.contacts.build  
   end
-
+  
   def create
-    @employee = Employee.new(employee_params)
-    #binding.pry 
+    @employee = Employee.new(employee_params) 
     if @employee.save
       flash[:notice] = "Employee was added successfully."
       redirect_to employees_path
@@ -27,8 +26,7 @@ class EmployeesController < ApplicationController
   end
   
   def update
-    @employee = Employee.find(params[:id])
-    #binding.pry 
+    @employee = Employee.find(params[:id]) 
     if @employee.update(employee_params)
       flash[:notice] = "Employee details were updated successfully."
       redirect_to employees_path

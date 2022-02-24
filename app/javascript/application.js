@@ -47,14 +47,25 @@ $(document).ready(function () {
   });
 });
 
+// $('.multi-field-wrapper').each(function () { 
+//   var $wrapper = $('.multi-fields', this);
+//   // $(".add-field", $(this)).click(function (e) { 
+//   //   $('.multi-field:first-child', $wrapper).clone(true).appendTo($wrapper).find('text_field').val('').focus();
+//   // });
+//   $('.multi-field .remove-field', $wrapper).click(function () {
+//     if ($('.multi-field', $wrapper).length > 1)
+//       $(this).parent('.multi-field').remove();
+//   });
+// });
 
-$(document).ready(function(){
-  if ($(".fields-row").length > 1) {
-      $(".remove_fields").show();
-    } else {
-      $(".remove_fields").hide();
-    }
-})
+
+// $(document).ready(function(){
+//   if ($(".fields-row").length > 1) {
+//       $(".remove_fields").show();
+//     } else {
+//       $(".remove_fields").hide();
+//     }
+// })
 
 // $(document).ready(function (){  
 //   $(".nested_form_field .remove_fields").hide();
@@ -73,7 +84,7 @@ $(document).ready(function(){
   // });
 
 
-  // $(".remove_nested_fields_link").on("click", function () { debugger 
+  // $(".remove_nested_fields_link").on("click", function () { debugger
   //   if ($(".fields-row").length > 1) {
   //     $(".remove_fields").show();
   //   } else {

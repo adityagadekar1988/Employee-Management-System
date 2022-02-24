@@ -12,16 +12,18 @@
     </div>
     
     <h3 class= "fw-bold mt-2">Contacts:</h3>
-    <div class="nested_form_field">
-      <%= f.nested_fields_for :contacts do |contact| %>
-        <div class="fields-row">
-          <%= contact.label :number, class: "m-1"%>
-          <%= contact.text_field :contact_no, placeholder: "Enter Contact", class: "m-1" %>
-          <%= contact.remove_nested_fields_link 'Remove', data: { confirm: 'Are you sure?' }, class: "link-danger remove_fields" %>
-        </div>
-      <% end %>
+    <div class="multi-field-wrapper">
+      <div class="multi-fields">
+        <%= f.nested_fields_for :contacts do |contact| %>
+          <div class="multi-field">
+            <%= contact.label :number, class: "m-1"%>
+            <%= contact.text_field :contact_no, placeholder: "Enter Phone Number", class: "m-1" %>
+            <%= contact.remove_nested_fields_link 'Remove', data: { confirm: 'Are you sure?' }, class: "link-danger remove-field" %>
+          </div>
+        <% end %>
+      </div>
+      <%= f.add_nested_fields_link :contacts, 'Add Contact', class: 'btn btn-secondary btn-sm mt-1 add-field' %>
     </div>
-    <%= f.add_nested_fields_link :contacts, 'Add Contact', class: 'btn btn-secondary btn-sm mt-1' %>
 
     <h3 class= "fw-bold mt-2" >Other Details:</h3>
     <%= f.label :date_of_birth, 'Date of Birth' %>
