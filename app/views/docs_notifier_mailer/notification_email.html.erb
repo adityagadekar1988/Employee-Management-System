@@ -9,31 +9,33 @@
   <body>
     <p>Hello there,</p>
     <p>This is to notify you that following employees have not submitted the documents needed: </p>
-    <table>
-      <thead>
-        <tr>
-          <th>S. No.</th>
-          <th>Employee Name</th>
-          <th>Missing Documents</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @employees.each_with_index do |employee, i| %>
+    <div>
+      <table>
+        <thead>
           <tr>
-            <td><%= i + 1 %></td>
-            <td><%= employee.name %></td>
-            <td>
-              <ol>
-                <% Document.where.not(id: employee.documents.pluck(:id)).each do |doc| %>
-                  <li><%= doc.document_name %></li>
-                <% end %>         
-              </ol>
-            </td>        
+            <th>S. No.</th>
+            <th>Employee Name</th>
+            <th>Missing Documents</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+
+        <tbody>
+          <% @employees.each_with_index do |employee, i| %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><%= employee.name %></td>
+              <td>
+                <ol>
+                  <% Document.where.not(id: employee.documents.pluck(:id)).each do |doc| %>
+                    <li><%= doc.document_name %></li>
+                  <% end %>         
+                </ol>
+              </td>        
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
     <p>Please collect them ASAP.</p>
     <p>Thanks</p>
   </body>
