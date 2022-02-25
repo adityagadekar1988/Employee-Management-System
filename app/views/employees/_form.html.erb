@@ -14,11 +14,13 @@
     <h3 class= "fw-bold mt-2">Contacts:</h3>
     <div class="multi-field-wrapper">
       <div class="multi-fields">
+
         <%= f.nested_fields_for :contacts do |contact| %>
           <div class="multi-field">
+            <%# binding.pry %>
             <%= contact.label :number, class: "m-1"%>
             <%= contact.text_field :contact_no, placeholder: "Enter Phone Number", class: "m-1" %>
-            <%= contact.remove_nested_fields_link 'Remove', data: { confirm: 'Are you sure?' }, class: "link-danger remove-field" %>
+            <%= contact.remove_nested_fields_link 'Remove', data: { confirm: 'Are you sure?' }, class: "link-danger remove-field"%>
           </div>
         <% end %>
       </div>
@@ -52,3 +54,10 @@
     </div>
   <% end %>
 </div>
+
+<script type="text/javascript">
+
+</script>
+
+
+

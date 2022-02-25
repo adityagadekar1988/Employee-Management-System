@@ -47,6 +47,19 @@ $(document).ready(function () {
   });
 });
 
+let number_of_fields = 0;
+
+document.querySelector(".remove_nested_fields_link").addEventListener("click", function() {
+  number_of_fields++;
+  debugger
+  if (number_of_fields == "<%= @employee.contacts.count - 1 %>") {
+    document.querySelector(".remove_nested_fields_link").hide();
+  }
+});
+
+//"<%= @employee.contacts.length -1 %>"
+// fields_removed.nested_form_fields
+
 // $('.multi-field-wrapper').each(function () { 
 //   var $wrapper = $('.multi-fields', this);
 //   // $(".add-field", $(this)).click(function (e) { 
