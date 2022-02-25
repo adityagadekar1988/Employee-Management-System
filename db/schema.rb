@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2022_02_15_111622) do
 
-  create_table "addresses", force: :cascade do |t|
+  create_table "addresses", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "first_line"
     t.string "second_line"
     t.string "landmark"
@@ -25,21 +25,21 @@ ActiveRecord::Schema.define(version: 2022_02_15_111622) do
     t.index ["type", "employee_id"], name: "index_addresses_on_type_and_employee_id"
   end
 
-  create_table "contacts", force: :cascade do |t|
+  create_table "contacts", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "contact_no"
     t.integer "employee_id"
   end
 
-  create_table "documents", force: :cascade do |t|
+  create_table "documents", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "document_name"
   end
 
-  create_table "employee_documents", force: :cascade do |t|
+  create_table "employee_documents", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.integer "employee_id"
     t.integer "document_id"
   end
 
-  create_table "employees", force: :cascade do |t|
+  create_table "employees", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.date "dob"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2022_02_15_111622) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
